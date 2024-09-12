@@ -26,9 +26,9 @@ pub struct Args {
 
 fn main() {
     match NumBaserCli::parse() {
-        NumBaserCli::FromBin(args) => bin::handle_args(args),
-        NumBaserCli::FromOct(args) => oct::handle_args(args),
-        NumBaserCli::FromDec(args) => dec::handle_args(args),
-        NumBaserCli::FromHex(args) => hex::handle_args(args),
+        NumBaserCli::FromBin(args) => handle_args(args, NumberBase::Binary),
+        NumBaserCli::FromOct(args) => handle_args(args, NumberBase::Octal),
+        NumBaserCli::FromDec(args) => handle_args(args, NumberBase::Decimal),
+        NumBaserCli::FromHex(args) => handle_args(args, NumberBase::Hexadecimal),
     }
 }
