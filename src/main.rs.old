@@ -1,0 +1,64 @@
+use clap::Parser;
+
+mod numbers;
+
+use numbers::*;
+
+// #[derive(clap::Parser)]
+// #[command(name = "numbaser")]
+// #[command(bin_name = "numbaser")]
+// enum NumBaserCli {
+//     #[command(name = "decimal")]
+//     FromDecimal(FromDecimalArgs),
+// }
+
+// #[derive(clap::Args, Debug)]
+// #[command(version, about, long_about = None)]
+// struct FromDecimalArgs {
+//     #[arg(value_name = "NUMBER")]
+//     input: i64,
+
+//     #[arg(long, action)]
+//     bin: bool,
+
+//     #[arg(long, action)]
+//     oct: bool,
+
+//     #[arg(long, action)]
+//     hex: bool,
+// }
+
+#[derive(clap::Parser)]
+struct Args {
+    #[arg(value_name = "NUMBER")]
+    input: i64,
+
+    #[arg(long, action)]
+    bin: bool,
+
+    #[arg(long, action)]
+    oct: bool,
+
+    #[arg(long, action)]
+    hex: bool,
+}
+
+fn main() {
+    // let NumBaserCli::FromDecimal(args) = NumBaserCli::parse();
+    // let args = Args::parse();
+
+    // if args.bin {
+    //     let res = bin::bin_from_dec(args.input);
+    //     println!("Binary: {}", res);
+    // }
+
+    // if args.oct {
+    //     let res = oct::oct_from_dec(args.input);
+    //     println!("Octal: {}", res);
+    // }
+
+    // if args.hex {
+    //     let res = hex::hex_from_dec(args.input);
+    //     println!("Hexadecimal: {}", res);
+    // }
+}
