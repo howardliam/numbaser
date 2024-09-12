@@ -27,6 +27,15 @@ impl NumberBase {
             NumberBase::Hexadecimal => 16,
         }
     }
+
+    pub fn to_str(&self) -> &str {
+        match self {
+            NumberBase::Binary => "binary",
+            NumberBase::Octal => "octal",
+            NumberBase::Decimal => "decimal",
+            NumberBase::Hexadecimal => "hexadecimal",
+        }
+    }
 }
 
 pub fn handle_args(args: Args, base: NumberBase) {
@@ -39,16 +48,18 @@ pub fn handle_args(args: Args, base: NumberBase) {
         }
     };
 
+    println!("Converting {} `{}`\n", base.to_str(), number);
+
     if base != NumberBase::Binary {
-        println!("Binary: {}", bin_from_dec(number));
+        println!("Binary: \t{}", bin_from_dec(number));
     }
     if base != NumberBase::Octal {
-        println!("Octal: {}", oct_from_dec(number));
+        println!("Octal: \t\t{}", oct_from_dec(number));
     }
     if base != NumberBase::Decimal {
-        println!("Decimal: {}", number);
+        println!("Decimal: \t{}", number);
     }
     if base != NumberBase::Hexadecimal {
-        println!("Hexadecimal: {}", hex_from_dec(number));
+        println!("Hexadecimal: \t{}", hex_from_dec(number));
     }
 }
